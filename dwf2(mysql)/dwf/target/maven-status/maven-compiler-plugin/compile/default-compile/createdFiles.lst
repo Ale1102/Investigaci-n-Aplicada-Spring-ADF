@@ -1,0 +1,8 @@
+com\example\webflow\WebFlowDemoApplication.class
+com\example\webflow\repository\UserRepository.class
+com\example\webflow\controller\HomeController.class
+com\example\webflow\controller\RegistrationController.class
+com\example\webflow\service\UserService.class
+com\example\webflow\model\User.class
+com\example\webflow\config\ThymeleafConfig.class
+com\example\webflow\config\WebFlowConfig.class

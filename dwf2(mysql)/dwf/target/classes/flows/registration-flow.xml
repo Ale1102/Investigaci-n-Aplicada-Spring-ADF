@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/webflow
+                          http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+    <!-- Initialize the user object -->
+    <on-start>
+        <evaluate expression="registrationController.initUser()" result="flowScope.user"/>
+    </on-start>
+
+    <!-- First step: Personal Information -->
+    <view-state id="personalInfo" view="registration/personal-info" model="user">
+        <transition on="next" to="reviewInfo"/>
+        <transition on="cancel" to="cancelRegistration"/>
+    </view-state>
+
+    <!-- Second step: Review Information -->
+    <view-state id="reviewInfo" view="registration/review-info">
+        <transition on="confirm" to="saveUser"/>
+        <transition on="back" to="personalInfo"/>
+        <transition on="cancel" to="cancelRegistration"/>
+    </view-state>
+
+    <!-- Action state to save the user -->
+    <action-state id="saveUser">
+        <evaluate expression="registrationController.saveUser(flowRequestContext)"/>
+        <transition on="success" to="registrationComplete"/>
+        <transition on="error" to="registrationError"/>
+    </action-state>
+
+    <!-- End state: Registration Complete -->
+    <end-state id="registrationComplete" view="registration/registration-complete"/>
+
+    <!-- Error state: Registration Error -->
+    <view-state id="registrationError" view="registration/registration-error">
+        <transition on="retry" to="reviewInfo"/>
+        <transition on="cancel" to="cancelRegistration"/>
+    </view-state>
+
+    <!-- End state: Registration Cancelled -->
+    <end-state id="cancelRegistration" view="registration/registration-cancelled"/>
+
+    <!-- Global transitions -->
+    <global-transitions>
+        <transition on="home" to="personalInfo"/>
+    </global-transitions>
+
+</flow>
+
+
+

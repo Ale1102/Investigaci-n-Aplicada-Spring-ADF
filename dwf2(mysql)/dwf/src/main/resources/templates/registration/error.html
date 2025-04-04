@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Error</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .error-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f8f8f8;
+    }
+    .error-title { color: #d9534f; }
+    .error-message { margin: 20px 0; }
+    .error-details {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .home-link { margin-top: 20px; }
+    .home-link a {
+      color: #337ab7;
+      text-decoration: none;
+    }
+    .home-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="error-container">
+  <h1 class="error-title">Error</h1>
+
+  <div class="error-message">
+    <p>Lo sentimos, ha ocurrido un error al procesar su solicitud.</p>
+  </div>
+
+  <div class="error-details">
+    <p><strong>Fecha:</strong> <span th:text="${#dates.format(timestamp, 'dd-MM-yyyy HH:mm:ss')}">Fecha</span></p>
+    <p><strong>Ruta:</strong> <span th:text="${path}">Ruta</span></p>
+    <p><strong>Error:</strong> <span th:text="${error}">Error</span></p>
+    <p><strong>Estado:</strong> <span th:text="${status}">Estado</span></p>
+    <p><strong>Mensaje:</strong> <span th:text="${message}">Mensaje</span></p>
+  </div>
+
+  <div class="home-link">
+    <a href="/">Volver a la página principal</a>
+  </div>
+</div>
+</body>
+</html>
+

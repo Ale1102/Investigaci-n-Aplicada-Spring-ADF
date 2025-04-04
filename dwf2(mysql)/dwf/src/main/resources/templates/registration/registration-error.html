@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Registration Error</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .error-message {
+      color: #d9534f;
+      background-color: #f2dede;
+      border: 1px solid #ebccd1;
+      padding: 15px;
+      border-radius: 4px;
+      margin: 20px 0;
+    }
+    .buttons { margin-top: 20px; }
+    button { padding: 8px 15px; margin-right: 10px; }
+  </style>
+</head>
+<body>
+<h1>Registration Error</h1>
+
+<div class="error-message">
+  <p>Lo sentimos, ha ocurrido un error al procesar su registro.</p>
+  <p>Por favor, intente nuevamente o contacte al administrador del sistema.</p>
+</div>
+
+<form action="#" th:action="${flowExecutionUrl}" method="post">
+  <div class="buttons">
+    <button type="submit" name="_eventId_retry">Intentar nuevamente</button>
+    <button type="submit" name="_eventId_cancel">Cancelar</button>
+  </div>
+</form>
+</body>
+</html>
+
+
+
+

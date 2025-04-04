@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registration Complete</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .success-message {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border: 1px solid #d6e9c6;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .buttons { margin-top: 20px; }
+        button { padding: 8px 15px; }
+    </style>
+</head>
+<body>
+<h1>Registration Complete</h1>
+
+<div class="success-message">
+    <p>Thank you for registering! Your information has been saved successfully.</p>
+</div>
+
+<div>
+    <h2>User Details:</h2>
+    <p><strong>Name:</strong> <span th:text="${user.firstName + ' ' + user.lastName}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+    <p th:if="${user.phone}"><strong>Phone:</strong> <span th:text="${user.phone}"></span></p>
+    <p th:if="${user.address}"><strong>Address:</strong> <span th:text="${user.address}"></span></p>
+</div>
+
+<form action="#" th:action="@{/registrationFlow}" method="get">
+    <div class="buttons">
+        <button type="submit">Start New Registration</button>
+    </div>
+</form>
+</body>
+</html>
+
+
+
+

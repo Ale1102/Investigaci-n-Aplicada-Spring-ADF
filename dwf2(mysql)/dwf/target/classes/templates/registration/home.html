@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Inicio - Ejemplo Spring Web Flow</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .header { margin-bottom: 30px; }
+    .flow-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    .flow-link:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Ejemplo de Spring Web Flow</h1>
+    <p>Esta es una aplicación de demostración que muestra cómo usar Spring Web Flow para crear un proceso de registro de usuario en varios pasos.</p>
+  </div>
+
+  <div>
+    <h2>Iniciar proceso de registro</h2>
+    <p>Haz clic en el botón de abajo para comenzar el proceso de registro:</p>
+    <a class="flow-link" href="http://localhost:8080/registrationFlow?">Iniciar Registro</a>
+  </div>
+</div>
+</body>
+</html>
+
+
