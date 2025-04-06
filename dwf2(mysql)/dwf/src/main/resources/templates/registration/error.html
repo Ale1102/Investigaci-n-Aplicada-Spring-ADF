@@ -1,57 +1,90 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Error</title>
+  <title>Inicio - Ejemplo Spring Web Flow</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    .error-container {
-      max-width: 600px;
-      margin: 0 auto;
+    :root {
+      --primary: #8a2be2;
+      --accent: #00bfff;
+      --dark-bg: #121212;
+      --darker-bg: #0a0a0a;
+      --card-bg: #1e1e1e;
+      --text: #e0e0e0;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text);
+      margin: 0;
       padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      background-color: #f8f8f8;
+      line-height: 1.6;
     }
-    .error-title { color: #d9534f; }
-    .error-message { margin: 20px 0; }
-    .error-details {
-      background-color: #eee;
-      padding: 10px;
-      border-radius: 4px;
-      font-family: monospace;
+
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--card-bg);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      border-radius: 12px;
+      border: 1px solid rgba(138, 43, 226, 0.2);
     }
-    .home-link { margin-top: 20px; }
-    .home-link a {
-      color: #337ab7;
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    }
+
+    h1 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+    }
+
+    .flow-link {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: var(--primary);
+      color: white;
       text-decoration: none;
+      border-radius: 6px;
+      margin-top: 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      letter-spacing: 0.5px;
     }
-    .home-link a:hover {
-      text-decoration: underline;
+
+    .flow-link:hover {
+      background-color: #6a1b9a;
+      box-shadow: 0 0 15px var(--primary);
+      transform: translateY(-2px);
+    }
+
+    p {
+      color: var(--text);
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-<div class="error-container">
-  <h1 class="error-title">Error</h1>
-
-  <div class="error-message">
-    <p>Lo sentimos, ha ocurrido un error al procesar su solicitud.</p>
+<div class="container">
+  <div class="header">
+    <h1>Ejemplo de Spring Web Flow</h1>
+    <p>Esta es una aplicación de demostración que muestra cómo usar Spring Web Flow para crear un proceso de registro de usuario en varios pasos.</p>
   </div>
 
-  <div class="error-details">
-    <p><strong>Fecha:</strong> <span th:text="${#dates.format(timestamp, 'dd-MM-yyyy HH:mm:ss')}">Fecha</span></p>
-    <p><strong>Ruta:</strong> <span th:text="${path}">Ruta</span></p>
-    <p><strong>Error:</strong> <span th:text="${error}">Error</span></p>
-    <p><strong>Estado:</strong> <span th:text="${status}">Estado</span></p>
-    <p><strong>Mensaje:</strong> <span th:text="${message}">Mensaje</span></p>
-  </div>
-
-  <div class="home-link">
-    <a href="/">Volver a la página principal</a>
+  <div>
+    <h2>Iniciar proceso de registro</h2>
+    <p>Haz clic en el botón de abajo para comenzar el proceso de registro:</p>
+    <a class="flow-link" href="http://localhost:8080/registrationFlow">Iniciar Registro</a>
   </div>
 </div>
 </body>
 </html>
-
