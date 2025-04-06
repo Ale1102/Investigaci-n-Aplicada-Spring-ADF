@@ -1,5 +1,4 @@
 # Investigaci-n-Aplicada-Spring-ADF
-# Demo de Registro con Spring Web Flow
 
 ## Descripción General
 
