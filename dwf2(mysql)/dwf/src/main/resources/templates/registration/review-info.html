@@ -5,49 +5,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .info-group { margin-bottom: 15px; }
-        .label { font-weight: bold; }
-        .buttons { margin-top: 20px; }
-        button { padding: 8px 15px; margin-right: 10px; }
+        :root {
+            --primary: #8a2be2;
+            --danger: #ff1493;
+            --accent: #00bfff;
+            --success: #00ff7f;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        h1 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--darker-bg);
+            border-radius: 6px;
+            border-left: 3px solid var(--primary);
+            transition: transform 0.3s;
+        }
+
+        .info-group:hover {
+            transform: translateY(-3px);
+        }
+
+        .label {
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-block;
+            min-width: 120px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        .buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .btn-confirm {
+            background-color: var(--success);
+            color: var(--darker-bg);
+        }
+
+        .btn-confirm:hover {
+            background-color: #00cc66;
+            box-shadow: 0 0 15px var(--success);
+            transform: translateY(-2px);
+        }
+
+        .btn-back {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-back:hover {
+            background-color: #6a1b9a;
+            box-shadow: 0 0 15px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .btn-cancel {
+            background-color: var(--danger);
+            color: white;
+        }
+
+        .btn-cancel:hover {
+            background-color: #cc1076;
+            box-shadow: 0 0 15px var(--danger);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .buttons {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<h1>Registration - Step 2: Review Information</h1>
+<div class="container">
+    <h1>Registro - Paso 2: Revisar la información</h1>
 
-<div class="info-group">
-    <span class="label">First Name:</span>
-    <span th:text="${user.firstName}"></span>
-</div>
-
-<div class="info-group">
-    <span class="label">Last Name:</span>
-    <span th:text="${user.lastName}"></span>
-</div>
-
-<div class="info-group">
-    <span class="label">Email:</span>
-    <span th:text="${user.email}"></span>
-</div>
-
-<div class="info-group">
-    <span class="label">Phone:</span>
-    <span th:text="${user.phone}"></span>
-</div>
-
-<div class="info-group">
-    <span class="label">Address:</span>
-    <span th:text="${user.address}"></span>
-</div>
-
-<form action="#" th:action="${flowExecutionUrl}" method="post">
-    <div class="buttons">
-        <button type="submit" name="_eventId_confirm">Confirm</button>
-        <button type="submit" name="_eventId_back">Back</button>
-        <button type="submit" name="_eventId_cancel">Cancel</button>
+    <div class="info-group">
+        <span class="label">Nombre:</span>
+        <span th:text="${user.firstName}"></span>
     </div>
-</form>
+
+    <div class="info-group">
+        <span class="label">Apellido:</span>
+        <span th:text="${user.lastName}"></span>
+    </div>
+
+    <div class="info-group">
+        <span class="label">Email:</span>
+        <span th:text="${user.email}"></span>
+    </div>
+
+    <div class="info-group">
+        <span class="label">Telefono:</span>
+        <span th:text="${user.phone} ?: 'No proporcionado'"></span>
+    </div>
+
+    <div class="info-group">
+        <span class="label">Dirección:</span>
+        <span th:text="${user.address} ?: 'No proporcionada'"></span>
+    </div>
+
+    <form action="#" th:action="${flowExecutionUrl}" method="post">
+        <div class="buttons">
+            <button type="submit" name="_eventId_confirm" class="btn-confirm">Confirmar</button>
+            <button type="submit" name="_eventId_back" class="btn-back">Regresar</button>
+            <button type="submit" name="_eventId_cancel" class="btn-cancel">Cancelar</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
-
-
