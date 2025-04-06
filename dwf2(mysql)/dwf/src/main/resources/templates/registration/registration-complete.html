@@ -5,42 +5,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .success-message {
-            color: #3c763d;
-            background-color: #dff0d8;
-            border: 1px solid #d6e9c6;
-            padding: 15px;
-            border-radius: 4px;
-            margin: 20px 0;
+        :root {
+            --primary: #8a2be2;
+            --success: #00ff7f;
+            --accent: #00bfff;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
         }
-        .buttons { margin-top: 20px; }
-        button { padding: 8px 15px; }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        h1 {
+            color: var(--success);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 255, 127, 0.2);
+        }
+
+        .success-message {
+            color: var(--success);
+            background: rgba(0, 255, 127, 0.1);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        .info-group {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: var(--darker-bg);
+            border-radius: 6px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .label {
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-block;
+            min-width: 120px;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        .buttons {
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            background-color: #6a1b9a;
+            box-shadow: 0 0 15px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<h1>Registration Complete</h1>
+<div class="container">
+    <h1>Registro Completo</h1>
 
-<div class="success-message">
-    <p>Thank you for registering! Your information has been saved successfully.</p>
-</div>
-
-<div>
-    <h2>User Details:</h2>
-    <p><strong>Name:</strong> <span th:text="${user.firstName + ' ' + user.lastName}"></span></p>
-    <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
-    <p th:if="${user.phone}"><strong>Phone:</strong> <span th:text="${user.phone}"></span></p>
-    <p th:if="${user.address}"><strong>Address:</strong> <span th:text="${user.address}"></span></p>
-</div>
-
-<form action="#" th:action="@{/registrationFlow}" method="get">
-    <div class="buttons">
-        <button type="submit">Start New Registration</button>
+    <div class="success-message">
+        <p>¡Gracias por registrarte! Tu información se ha guardado correctamente.</p>
     </div>
-</form>
+
+    <div>
+        <h2>Detalles del Usuario:</h2>
+        <div class="info-group">
+            <span class="label">Nombre:</span>
+            <span th:text="${user.firstName + ' ' + user.lastName}"></span>
+        </div>
+        <div class="info-group">
+            <span class="label">Email:</span>
+            <span th:text="${user.email}"></span>
+        </div>
+        <div class="info-group" th:if="${user.phone}">
+            <span class="label">Telefono:</span>
+            <span th:text="${user.phone}"></span>
+        </div>
+        <div class="info-group" th:if="${user.address}">
+            <span class="label">Dirección:</span>
+            <span th:text="${user.address}"></span>
+        </div>
+    </div>
+
+    <form action="#" th:action="@{/registrationFlow}" method="get">
+        <div class="buttons">
+            <button type="submit">Iniciar nuevo registro</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
-
-
-
-
