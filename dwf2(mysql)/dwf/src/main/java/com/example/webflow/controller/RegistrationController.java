@@ -1,3 +1,4 @@
+
 package com.example.webflow.controller;
 
 import com.example.webflow.model.User;
@@ -35,4 +36,3 @@ public class RegistrationController {
         }
     }
 }
-
