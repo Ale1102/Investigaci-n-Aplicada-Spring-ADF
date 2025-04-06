@@ -18,27 +18,27 @@ Este proyecto demuestra la implementación de un proceso de registro en múltipl
 ## Estructura del Proyecto
 
 ## src/main/
-## ├── java/com/example/webflow/
-## │   ├── config/
-## │   │   └── WebFlowConfig.java         # Configuración de Spring Web Flow
-## │   ├── controller/
-## │   │   ├── HomeController.java        # Controlador principal para redirecciones
-## │   │   └── RegistrationController.java # Controlador para el flujo de registro
-## │   ├── model/
-## │   │   └── User.java                  # Entidad Usuario
-## │   ├── repository/
-## │   │   └── UserRepository.java        # Repositorio JPA
-## │   ├── service/
-## │   │   └── UserService.java           # Capa de servicio
-## │   └── WebFlowDemoApplication.java    # Clase principal de la aplicación
-## └── resources/
-## ├── flows/
-## │   └── registration-flow.xml      # Definición del flujo
-## ├── templates/
-## │   ├── registration/
-## │   │   ├── personal-info.html     # Paso 1: Formulario de información personal
-## │   │   ├── review-info.html       # Paso 2: Revisión de información
-## │   │   ├── registration-complete.html # Página de éxito
+# ├── java/com/example/webflow/
+# │   ├── config/
+# │   │   └── WebFlowConfig.java         # Configuración de Spring Web Flow
+# │   ├── controller/
+# │   │   ├── HomeController.java        # Controlador principal para redirecciones
+# │   │   └── RegistrationController.java # Controlador para el flujo de registro
+# │   ├── model/
+# │   │   └── User.java                  # Entidad Usuario
+# │   ├── repository/
+# │   │   └── UserRepository.java        # Repositorio JPA
+# │   ├── service/
+# │   │   └── UserService.java           # Capa de servicio
+# │   └── WebFlowDemoApplication.java    # Clase principal de la aplicación
+# └── resources/
+# ├── flows/
+# │   └── registration-flow.xml      # Definición del flujo
+# ├── templates/
+# │   ├── registration/
+# │   │   ├── personal-info.html     # Paso 1: Formulario de información personal
+# │   │   ├── review-info.html       # Paso 2: Revisión de información
+# │   │   ├── registration-complete.html # Página de éxito
 ## │   │   ├── registration-error.html    # Página de error
 ## │   │   └── registration-cancelled.html # Página de cancelación
 ## │   └── error.html                 # Página de error genérica
