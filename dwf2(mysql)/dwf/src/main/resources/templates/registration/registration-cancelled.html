@@ -5,27 +5,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .cancel-message {
-            color: #666;
-            margin: 20px 0;
+        :root {
+            --primary: #8a2be2;
+            --danger: #ff1493;
+            --accent: #00bfff;
+            --warning: #ff8c00;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
         }
-        .buttons { margin-top: 20px; }
-        button { padding: 8px 15px; }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        h1 {
+            color: var(--warning);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.2);
+        }
+
+        .cancel-message {
+            color: var(--warning);
+            background: rgba(255, 140, 0, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin: 1.5rem 0;
+        }
+
+        .buttons {
+            margin-top: 1.5rem;
+        }
+
+        button {
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            background-color: #6a1b9a;
+            box-shadow: 0 0 15px var(--primary);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<h1>Registration Cancelled</h1>
+<div class="container">
+    <h1>Registro Cancelado</h1>
 
-<div class="cancel-message">
-    <p>You have cancelled the registration process.</p>
-</div>
-
-<form action="#" th:action="@{/registrationFlow}" method="get">
-    <div class="buttons">
-        <button type="submit">Return to Registration</button>
+    <div class="cancel-message">
+        <p>Ha cancelado el proceso de registro.</p>
     </div>
-</form>
+
+    <form action="#" th:action="@{/registrationFlow}" method="get">
+        <div class="buttons">
+            <button type="submit">Volver a Registro</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
-
